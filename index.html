@@ -1,0 +1,275 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8" ;>
+    <meta name="viweport" content="width-device-width, initial-scale=1.0">
+    <title>LIBWEB</title>
+    <link rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+          integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="first-column">
+            <div class="teste1">
+                <h1 class="title1">LIBWEB</h1>
+                <form class="login">
+                    <input type="email" placeholder="Email">
+
+                    <input type="password" placeholder="Senha">
+
+                    <input type="submit" nome="acao" value="Entrar">
+
+                    <a class="cta2" href="#">Esqueceu sua senha?</a><!--fecha o cta2-->
+
+                    <input type="button" class="cadastro" onclick="redirecionar()" value="Criar conta" />
+
+                    <script> function redirecionar() {
+                            window.location.href = 'cadastro.html';
+                        }
+                        const button = document.getElementById('button')</script>
+
+                </form>
+
+            </div><!--fecha o teste1-->
+        </div><!--fecha o first-column-->
+
+        <div class="second-column">
+            <div class="teste2">
+                <div class="fotos1">
+                    <div class="fotos">
+                        <img src="logo3.png" alt="logo" width="200" height="150">
+                        <div class="foto2"><img src="logo2.png" alt="logo" width="200" height="150"></div>
+                    </div>
+                </div>
+                <p class="textos">O LIBWEB é uma rede social que tem como objetivo unir as pessoas da comunidade surda.</p>
+            </div><!--fecha o teste2-->
+        </div><!--fecha o second-column-->
+    </div><!--fecha o container-->
+
+    <script>button.addEventListener('click', (event) => {
+            event.preventDefault()
+
+            const email = document.getElementById('email')
+            const password = document.getElementById('password')
+
+            const name = document.getElementById('name')
+            const usuario = document.getElementById('usuario')
+            const cidade = document.getElementById('cidade')
+            const estado = document.getElementById('estado')
+
+            if (name.value == '') {
+                name.classList.add("errorInput")
+            } else {
+                name.classList.remove("errorInput")
+            }
+
+            if (usuario.value == '') {
+                usuario.classList.add("errorInput")
+            } else {
+                usuario.classList.remove("errorInput")
+            }
+
+            if (cidade.value == '') {
+                cidade.classList.add("errorInput")
+            } else {
+                cidade.classList.remove("errorInput")
+            }
+
+            if (estado.value == '') {
+                estado.classList.add("errorInput")
+            } else {
+                estado.classList.remove("errorInput")
+            }
+
+            if (email.value == '') {
+                email.classList.add("errorInput")
+            } else {
+                email.classList.remove("errorInput")
+            }
+
+            if (password.value == '') {
+                password.classList.add("errorInput")
+            } else {
+                password.classList.remove("errorInput")
+            }
+
+            if (email.value.indexOf("@") == -1 || email.value.indexOf(".") == -1 || (email.value.indexOf(".") - email.value.indexOf("@") == 1)) {
+                email.classList.add("errorInput")
+            } else {
+                email.classList.remove("errorInput")
+            }
+
+            if (password.value.length <= 5) {
+                password.classList.add("errorInput")
+            } else {
+                password.classList.remove("errorInput")
+            }
+        })
+
+        document.querySelectorAll('input').forEach($input => {
+            const field = $input.dataset.js
+
+            $input.addEventListener('input', e => {
+                e.target.value = masks[field](e.target.value)
+            }, false)
+        })
+</script>
+
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    .container {
+        display: flex;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .first-column {
+        flex: 50%;
+        padding: 10px;
+        height: 100vh;
+        background-color: #ffffff;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .second-column {
+        flex: 50%;
+        padding: 10px;
+        height: 100vh;
+        background-color: #fef4ea;
+        align-items: center;
+    }
+
+    .teste1 {
+        margin-top: 23%;
+    }
+
+    .teste2 {
+        margin-top: 25%;
+    }
+
+    .teste1-1 {
+        margin-top: 5%;
+    }
+
+    .title1,
+    .textos {
+        text-align: center;
+    }
+
+    .login,
+    .cadastro {
+        width: 100%;
+        margin: 0 auto;
+        align-items: center;
+        text-align: justify;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+        .login input[type= email],
+        .login input[type= password],
+        .login input[type= submit],
+        .login input[type= button],
+        .conta,
+        .cadastro input,
+        .button {
+            align-items: center;
+            width: 500px;
+            height: 50px;
+            display: inline-block;
+            margin: 10px 0px;
+            padding: 10px 10px;
+            border: 1px;
+            background-color: #f2f2f2;
+            border-radius: 10px;
+        }
+
+        .login input[type= submit],
+        .login input[type= button],
+        .conta,
+        .button,
+        .cta1 {
+            cursor: pointer;
+            background-color: #f2561d;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+            .login input[type= submit]:hover,
+            .login input[type= button]:hover,
+            .conta:hover,
+            .button:hover {
+                background-color: #f23005;
+            }
+
+    .cta2 {
+        color: #f2561d;
+        white-space: nowrap;
+    }
+
+    .fotos1 {
+        margin-left: 35%;
+    }
+
+    .fotos {
+        position: relative;
+        top: 0px;
+        left: 0px;
+    }
+
+    .foto2 {
+        position: absolute;
+        top: 0px;
+        left: 5px;
+    }
+
+    /*Resposividade*/
+    @media (max-width: 800px) {
+
+        .container, .first-column, .second-column {
+            width: 100%;
+            height: 100%;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .first-column {
+            margin-top: 50%;
+        }
+
+        .teste2 {
+            padding-top: 50%;
+            margin-top: 50%;
+        }
+    }
+
+    @media (max-width: 1040px) {
+
+        .fotos1 {
+            margin-left: 25%;
+        }
+
+        .teste1-1 {
+            margin-top: 2%;
+        }
+    }
+</style>
+
+</body>
+</html>
